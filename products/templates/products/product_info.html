@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+     <!-- HOME -->
+     <div class="container-wrapper" style="padding: 50px;">
+          <div class="row">
+               <div class="col-md-6">
+                    <!-- The grid: four columns -->
+                    <div class="rowg">
+                    <!-- The expanding image container -->
+                         <div class="containerg">
+                         
+                         <!-- Expanded image -->
+                         <img id="expandedImg" src="/{{ pr.image1 }}" style="width: 100%;">
+                       </div>
+                      <div class="columng">
+                        <img src="/{{ pr.image1 }}" style="width: 70px; height: 70px;" alt="Nature" onclick="myFunction(this);">
+                      </div>
+                      <div class="columng">
+                        <img src="/{{ pr.image2 }}" style="width: 70px; height: 70px;" alt="Snow" onclick="myFunction(this);">
+                      </div>
+                      <div class="columng">
+                        <img src="/{{ pr.image3 }}" style="width: 70px; height: 70px;" alt="Mountains" onclick="myFunction(this);">
+                      </div>
+                      <div class="columng">
+                        <img src="/{{ pr.image4 }}" style="width: 70px; height: 70px;" alt="Lights" onclick="myFunction(this);">
+                      </div>
+                      <div class="columng">
+                        <img src="/{{ pr.image5 }}" style="width: 70px; height: 70px;" alt="Besinci" onclick="myFunction(this);">
+                      </div>
+                    </div>
+               </div>
+               <div class="col-md-6">
+                    <div class="detail_container">
+                         <h3 style="font-size: 2.2em;">{{ pr.name }}</h3>
+                         <br><br>
+                         <div class="specification">
+                              <p><span>Rəngi: </span> {{ pr.color }}</p>
+                              <p><span>Ölçüsü: </span> {{ pr.size }}</p>
+                         </div>
+                         <br>
+                         <div class="info_mini">
+                              <p>{{ pr.detail_mini }}</p>
+                         </div>
+                         <br><br>
+                         <div class="info_main">
+                              <p>{{ pr.detail_main }}</p>
+                         </div>
+                         <br><br>
+                         <div class="product_to_card">
+                              <form action="{% url 'products:add' %}" method="get">
+                                   <input type="hidden" name="product_id" value="{{ pr.id }}">
+                                   <input type="number" name="count" value="1" min="1" max="50">
+                                   <button type="submut"><i class="fa fa-cart-plus" aria-hidden="true"></i> SƏBƏTƏ ƏLAVƏ ET</button>
+                              </form>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <br><br><br><br>
+     <!-- FOOTER -->
+     {% endblock %}
